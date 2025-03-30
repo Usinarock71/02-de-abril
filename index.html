@@ -8,29 +8,54 @@
 </head>
 <body>
     <header>
+        <h1>2 de Abril</h1>
         <nav>
             <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="sobre.html">Sobre Nosotros</a></li>
-                <li><a href="momentos.html">Momentos</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="index.html">Introduccion</a></li>
+                <li><a href="sobre.html">Fotos</a></li>
+                <li><a href="momentos.html">Carta</a></li>
+                <li><a href="contacto.html">Momentos</a></li>
             </ul>
         </nav>
     </header>
     
     <main>
-        <h1>02 De Abril</h1>
-        <p>Esta pagina fue hecha con todo mi amor hacia vos</p>
-        <p>Siendo mi primer proyecto te lo quise dedicar a vos</p>
-        <p>e intentar mostrarte un autentico regalo solo para vos</p>
+        <section class="intro">
+        <h2>Introduccion</h2>
+        <p></p>
+        <p>Esta pagina fue hecha  con todo mi amor hacia vos</p>
+        <p>Siendo mi primer proyecto  personal  te lo dedico</p>
+        <p>para darte un  autentico regalo como lo que no he</p>
+        <p>podido hacerte hasta el momento,  algo original y</p>
+        <p>relacionado con lo que vemos juntitos actualmente</p>
+        <p>sin más espero que te guste y te amo mucho. 🤍🤍</p>
+        <img src="assets/images/5139005211380134397.jpg" alt="Imagen especial">
+        <p></p>
+        <h2>¿Qué vas a encontrar acá?</h2>
+        <p></p>
+        <p>El objetivo es dedicarte una cartita   exponiendo</p>
+        <p>mis sentimientos actuales hacia vos y todo lo que</p>
+        <p>que hemos pasado juntitos,  ademas de una seccion</p>
+        <p>dedicada a recopilar varias fotos de las veces en</p>
+        <p>en las que nos vimos e irla actualizando  junto a</p>
+        <p>nuestros albumes en drive, por  ultimo, voy a re-</p>
+        <p>pasar varios de nuestros dias especiales, regalos</p>
+        <p>y demás. Ya para   cerrar, en todas las secciones</p>
+        <p>vas a tener ese primitivo  reproductor de abajo a</p>
+        <p>la derecha con varias    de las canciones que nos</p>
+        <p>dedicamos, sin más espero te guste mucho mi gf 🤍</p>
+        </section>
     </main>
-    <div class="music-container">
-        <p id="songTitle">Reproduciendo: </p>
-        <button id="playPause">Pausar</button>
-        <button id="next">Siguiente</button>
-        <input type="range" id="volume" min="0" max="1" step="0.1" value="1">
-    </div>
     
+    <div id="music-player">
+        <div class="player-content">
+            <p>Reproduciendo: <span id="song-name">Canción</span></p>
+            <button id="play-pause">▶️</button>
+            <button id="next">⏭️</button>
+            <input type="range" id="volume" min="0" max="1" step="0.1">
+        </div>
+    </div>
+
     <audio id="music" autoplay loop></audio>
     <script src="app.js"></script>
 </body>

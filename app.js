@@ -1,57 +1,61 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const music = document.getElementById("music");
-    const songTitle = document.getElementById("songTitle");
-    const playPauseBtn = document.getElementById("playPause");
+
+    const songs = [
+        { name: "Nicki Nicole - Llámame", src: "assets/songs/Nicki Nicole - Llámame.mp3" },
+        { name: "Wos - Okupa", src: "assets/songs/Wos - Okupa.mp3" },
+        { name: "The Neighbourhood - Compass", src: "assets/songs/The Neighbourhood - Compass.mp3" },
+        { name: "The Weekend - Die For You", src: "assets/songs/The Weekend - Die For You.mp3" },
+        { name: "Trueno - SOLO POR VOS", src: "assets/songs/Trueno - SOLO POR VOS.mp3" },
+        { name: "Nicki Nicole - Me Gusta", src: "assets/songs/Nicki Nicole - Me Gusta.mp3" },
+        { name: "Shye - Love U", src: "assets/songs/Shye - Love U.mp3" },
+        { name: "The Neighbourhood - You Get Me So High", src: "assets/songs/The Neighbourhood - You Get Me So High.mp3" },
+        { name: "Lady Gaga, Bruno Mars - Die With A Smile", src: "assets/songs/Lady Gaga, Bruno Mars - Die With A Smile.mp3" },
+        { name: "COSMIC KID - COSMIC GIRL", src: "assets/songs/COSMIC KID - COSMIC GIRL.mp3" },
+        { name: "Nicki Nicole - Nos Encontramos", src: "assets/songs/Nicki Nicole - Nos Encontramos.mp3" },
+        { name: "Patrick Watson - Je te laisserai des mots", src: "assets/songs/Patrick Watson - Je te laisserai des mots.mp3" }
+    ];
+    
+    let currentSongIndex = 0;
+    const audio = new Audio(songs[currentSongIndex].src);
+    const songName = document.getElementById("song-name");
+    const playPauseBtn = document.getElementById("play-pause");
     const nextBtn = document.getElementById("next");
     const volumeControl = document.getElementById("volume");
-    const musicContainer = document.querySelector(".music-container");
 
-    const playlist = [
-        "assets/songs/Nicki Nicole - Llámame (Audio).mp3",
-        "assets/songs/Wos - Okupa",
-        "assets/songs/The Neighbourhood - Compass",
-        "assets/songs/The Weekend - Die For You",
-        "assets/songs/Trueno - SOLO POR VOS",
-        "assets/songs/Nicki Nicole - Me Gusta",
-        "assets/songs/Shye - Love U.",
-        "assets/songs/The Neighbourhood - You Get Me So High",
-        "assets/songs/Lady Gaga, Bruno Mars - Die With A Smile",
-        "assets/songs/COSMIC KID - COSMIC GIRL",
-        "assets/songs/Nicki Nicole - Nos Encontramos",
-        "assets/songs/Patrick Watson - Je te laisserai des mots"
-    ];
-    let index = 0;
+// Actualizar nombre de la canción
+function updateSong() {
+    songName.textContent = songs[currentSongIndex].name;
+    audio.src = songs[currentSongIndex].src;
+    audio.play();
+    playPauseBtn.textContent = "⏸️";
+}
 
-    function updateSong() {
-        music.src = playlist[index];
-        const songName = playlist[index].split('/').pop();
-        songTitle.textContent = "Reproduciendo: " + songName;
-        musicContainer.setAttribute("data-title", "🎵 " + songName);
-        musicContainer.setAttribute("data-title", "🎵 " + playlist[index]);
-        music.play();
+// Play / Pause
+playPauseBtn.addEventListener("click", () => {
+    if (audio.paused) {
+        audio.play();
+        playPauseBtn.textContent = "⏸️";
+    } else {
+        audio.pause();
+        playPauseBtn.textContent = "▶️";
     }
+});
 
-    function playNext() {
-        index = (index + 1) % playlist.length;
-        updateSong();
-    }
-
-    playPauseBtn.addEventListener("click", () => {
-        if (music.paused) {
-            music.play();
-            playPauseBtn.textContent = "Pausar";
-        } else {
-            music.pause();
-            playPauseBtn.textContent = "Reproducir";
-        }
-    });
-
-    nextBtn.addEventListener("click", playNext);
-
-    volumeControl.addEventListener("input", (e) => {
-        music.volume = e.target.value;
-    });
-
-    music.addEventListener("ended", playNext);
+// Siguiente canción
+nextBtn.addEventListener("click", () => {
+    currentSongIndex = (currentSongIndex + 1) % songs.length;
     updateSong();
 });
+
+// Control de volumen
+volumeControl.addEventListener("input", () => {
+    audio.volume = volumeControl.value;
+});
+
+// Cuando termina una canción, ir a la siguiente
+audio.addEventListener("ended", () => {
+    currentSongIndex = (currentSongIndex + 1) % songs.length;
+    updateSong();
+});
+
+// Iniciar con la primera canción
+updateSong();

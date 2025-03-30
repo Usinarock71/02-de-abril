@@ -8,26 +8,31 @@
 </head>
 <body>
     <header>
+        <h1>2 de Abril</h1>
         <nav>
             <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="sobre.html">Sobre Nosotros</a></li>
-                <li><a href="momentos.html">Momentos</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="index.html">Introduccion</a></li>
+                <li><a href="sobre.html">Fotos</a></li>
+                <li><a href="momentos.html">Carta</a></li>
+                <li><a href="contacto.html">Momentos</a></li>
             </ul>
         </nav>
     </header>
     
     <main>
-
+        <section class="intro">
+        </section>
     </main>
-    <div class="music-container">
-        <p id="songTitle">Reproduciendo: </p>
-        <button id="playPause">Pausar</button>
-        <button id="next">Siguiente</button>
-        <input type="range" id="volume" min="0" max="1" step="0.1" value="1">
-    </div>
     
+    <div id="music-player">
+        <div class="player-content">
+            <p>Reproduciendo: <span id="song-name">Canción</span></p>
+            <button id="play-pause">▶️</button>
+            <button id="next">⏭️</button>
+            <input type="range" id="volume" min="0" max="1" step="0.1">
+        </div>
+    </div>
+
     <audio id="music" autoplay loop></audio>
     <script src="app.js"></script>
 </body>
