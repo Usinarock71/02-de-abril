@@ -59,3 +59,13 @@ audio.addEventListener("ended", () => {
 
 // Iniciar con la primera canción
 updateSong();
+
+let currentIndex = [0, 0, 0]; // Índices para cada galería
+
+function moveSlide(step, galleryIndex) {
+    let slides = document.querySelectorAll(`.slide-${galleryIndex}`);
+    
+    slides[currentIndex[galleryIndex]].style.display = "none"; // Oculta la imagen actual
+    currentIndex[galleryIndex] = (currentIndex[galleryIndex] + step + slides.length) % slides.length;
+    slides[currentIndex[galleryIndex]].style.display = "block"; // Muestra la nueva imagen
+}

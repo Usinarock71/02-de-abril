@@ -119,3 +119,34 @@ button {
 input[type="range"] {
     width: 100px;
 }
+
+.gallery {
+    text-align: center;
+    margin: 50px auto;
+    max-width: 600px;
+}
+
+.carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.carousel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+    border: 2px solid #FF0000;
+    border-radius: 10px;
+}
+
+button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    margin: 0 10px;
+}
