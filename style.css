@@ -1,4 +1,21 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Krona+One&display=swap');
+
+@media (max-width: 768px) {  
+    .container {  
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .image, .text {  
+        max-width: 90%;
+    }
+
+    .image img {
+        width: 100%;
+    }
+}
+
 
 @keyframes fadeIn {
     from {
